@@ -40,12 +40,23 @@ public class BankInfo {
 	
 	
 	@Transient
+	private int toCustId;
+	
+	@Transient
 	String message ;
 	@Transient
 	String success;
 	
 	
 	
+	public int getToCustId() {
+		return toCustId;
+	}
+
+	public void setToCustId(int toCustId) {
+		this.toCustId = toCustId;
+	}
+
 	public String getName() {
 		return name;
 	}
