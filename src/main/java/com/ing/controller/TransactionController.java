@@ -6,10 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ing.domain.BankInfo;
+import com.ing.domain.CustomerInfo;
 import com.ing.service.TransactionService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -17,7 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @CrossOrigin
 @RestController
 @EnableSwagger2
-@RequestMapping("api/v1/")
+@RequestMapping("api/")
 public class TransactionController {
 	
 	@Autowired
@@ -26,10 +29,12 @@ public class TransactionController {
 	@Autowired
 	Optional<BankInfo> bankinfo;
 	
-	@GetMapping("/transferAmount")
-	public Optional<BankInfo> transferAmount(int custId, Double amt) {
+
+	
+	@RequestMapping(value = "/transferAmount", method = RequestMethod.POST, consumes = "application/json")
+	public BankInfo transferAmount(@RequestBody BankInfo bankInfo) {
 		
-		return transactionService.getCustomerBankAcc(custId, amt);
+		return transactionService.getCustomerBankAcc(bankInfo.getCustId(), bankInfo.getAmount());
 		
 		
 	}

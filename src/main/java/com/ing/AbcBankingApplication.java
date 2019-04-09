@@ -26,23 +26,4 @@ public class AbcBankingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AbcBankingApplication.class, args);
 	}
-	@Bean
-	public Docket postsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("public-api")
-				.apiInfo(apiInfo()).select().paths(postPaths()).build();
-	}
-
-	private Predicate<String> postPaths() {
-		return or(regex("/api/posts.*"), regex("/api/v1.*"));
-	}
-
-	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Ing API")
-				.description("Ing Product Group API reference for developers")
-				.termsOfServiceUrl("http://ing.com")
-				.contact("swarups@hcl.com").license("Ing License")
-				.licenseUrl("swarups@hcl.com").version("1.0").build();
-	}
-	
-
 }

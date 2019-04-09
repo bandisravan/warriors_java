@@ -1,5 +1,6 @@
 package com.ing.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,15 +13,17 @@ import javax.persistence.Transient;
 public class CustomerInfo {
 	
 	@Id
-	@GeneratedValue
+	
 	private int custId ;
-	private String custname;
+	@Column(name="custname")
+	private String name;
 	private String password;
 	private String pan;
 	private String aadhar;
 	private String gender;
 	private String email;
-	private String phone;
+	@Column(name="phone")
+	private String phoneNo;
 	private String role;
 	
 	@Transient
@@ -30,6 +33,31 @@ public class CustomerInfo {
 	
 	
 	
+	
+	public CustomerInfo(String name, String password, String pan, String aadhar, String gender, String email,
+			String phoneNo, String role) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.pan = pan;
+		this.aadhar = aadhar;
+		this.gender = gender;
+		this.email = email;
+		this.phoneNo = phoneNo;
+		this.role = role;
+	}
+
+
+
+	public CustomerInfo(int custId, String password, String role) {
+		super();
+		this.custId = custId;
+		this.password = password;
+		this.role = role;
+	}
+
+
+
 	public String getMessage() {
 		return message;
 	}
@@ -72,15 +100,6 @@ public class CustomerInfo {
 
 
 
-	public String getCustname() {
-		return custname;
-	}
-
-
-
-	public void setCustname(String custname) {
-		this.custname = custname;
-	}
 
 
 
@@ -144,14 +163,28 @@ public class CustomerInfo {
 
 
 
-	public String getPhone() {
-		return phone;
+
+
+	public String getName() {
+		return name;
 	}
 
 
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 
 
