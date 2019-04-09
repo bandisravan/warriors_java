@@ -34,7 +34,7 @@ public class TransactionController {
 	@RequestMapping(value = "/transferAmount", method = RequestMethod.POST, consumes = "application/json")
 	public BankInfo transferAmount(@RequestBody BankInfo bankInfo) {
 		
-		return transactionService.getCustomerBankAcc(bankInfo.getCustId(), bankInfo.getAmount());
+		return transactionService.getCustomerBankAcc(bankInfo.getCustId(), bankInfo.getAmount(),bankInfo.getToCustId());
 		
 		
 	}
