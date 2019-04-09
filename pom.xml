@@ -39,23 +39,24 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.4.0</version>
-
-		</dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</artifactId>
+		<version>2.9.2</version>
+	</dependency>
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger-ui</artifactId>
+		<version>2.9.2</version>
+	</dependency>
 	</dependencies>
 
 	<distributionManagement>
 		<repository>
-			<id>deployment</id>
-			<name>release</name>
+			<id>releases</id>
 			<url>http://13.234.186.204:8081/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>snapshots</id>
-			<name>Internal Snapshots</name>
 			<url>http://13.234.186.204:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
