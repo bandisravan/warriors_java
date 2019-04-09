@@ -16,7 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="submit_stock")
+@Table(name="Bank_Acc")
 public class BankInfo {
 
 	@Id

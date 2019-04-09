@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "Customer_Info")
@@ -21,8 +23,37 @@ public class CustomerInfo {
 	private String phone;
 	private String role;
 	
+	@Transient
+	String message ;
+	@Transient
+	String success;
 	
 	
+	
+	public String getMessage() {
+		return message;
+	}
+
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+
+	public String getSuccess() {
+		return success;
+	}
+
+
+
+	public void setSuccess(String success) {
+		this.success = success;
+	}
+
+
+
 	public CustomerInfo() {
 		super();
 	}
